@@ -3,21 +3,21 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git(url: 'https://github.com/viswanath123/sample-java-web.git', branch: 'master', credentialsId: 'viswanath123')
+        git(url: 'https://github.com/Ajayvarma8142/sample-java-web.git', branch: 'master', credentialsId: 'Ajayvarma8142')
       }
     }
     stage('Initialize') {
       steps {
-        sh '''
-                    export PATH=/home/ubuntu/apache-maven-3.5.3/bin
-                    export M2_HOME=/home/ubuntu/apache-maven-3.5.3
+        bat '''
+                    export PATH=C:\apache-maven-3.6.0\bin
+                    export M2_HOME=C:\apache-maven-3.6.0
                 '''
       }
     }
     stage('Build') {
       steps {
         echo 'build'
-        sh 'mvn clean test'
+        bat 'mvn clean test'
       }
     }
     stage('Test') {
@@ -30,7 +30,7 @@ pipeline {
         stage('Junit') {
           steps {
             echo 'junit tests'
-            sh 'mvn test -B -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true'
+            bat 'mvn test -B -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true'
           }
         }
         stage('cucumber') {
