@@ -8,16 +8,16 @@ pipeline {
     }
     stage('Initialize') {
       steps {
-        bat '''
-                    export PATH=C:\apache-maven-3.6.0\bin
-                    export M2_HOME=C:\apache-maven-3.6.0
+        sh '''
+                    export PATH=/home/ubuntu/apache-maven-3.6.0/bin
+                    export M2_HOME=/home/ubuntu/apache-maven-3.6.0
                 '''
       }
     }
     stage('Build') {
       steps {
         echo 'build'
-        bat 'mvn clean test'
+        sh 'mvn clean test'
       }
     }
     stage('Test') {
@@ -30,7 +30,7 @@ pipeline {
         stage('Junit') {
           steps {
             echo 'junit tests'
-            bat 'mvn test -B -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true'
+            sh 'mvn test -B -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true'
           }
         }
         stage('cucumber') {
