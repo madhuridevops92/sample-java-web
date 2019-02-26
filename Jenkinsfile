@@ -45,6 +45,26 @@ pipeline {
         echo 'Dev env'
       }
     }
+    stage('Test') {
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'Tests'
+          }
+        }
+        /*stage('Junit') {
+          steps {
+            echo 'junit tests'
+            sh 'mvn test -B -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true'
+          }
+        }*/
+        stage('junit') {
+          steps {
+            echo 'junit test cases'
+          }
+        }
+      }
+    }
     stage('Staging') {
       steps {
         echo 'stage env'
