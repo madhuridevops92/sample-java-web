@@ -6,18 +6,18 @@ pipeline {
         git(url: 'https://github.com/Ajayvarma8142/sample-java-web.git', branch: 'master', credentialsId: 'Ajayvarma8142')
       }
     }
-    stage('Initialize') {
+    /*stage('Initialize') {
       steps {
         bat '''
-                    export PATH=C:/apache-maven-3.6.0/bin
-                    export M2_HOME=C:/apache-maven-3.6.0
+                    export PATH=C:\Program Files\apache-maven-3.5.4
+                    export M2_HOME=C:\Program Files\apache-maven-3.5.4
                 '''
       }
-    }
+    }*/
     stage('Build') {
       steps {
         echo 'build'
-        bat 'mvn clean test'
+        /*sh 'mvn clean test'*/
       }
     }
     stage('Test') {
@@ -27,12 +27,12 @@ pipeline {
             echo 'Tests'
           }
         }
-        stage('Junit') {
+        /*stage('Junit') {
           steps {
             echo 'junit tests'
-            bat 'mvn test -B -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true'
+            sh 'mvn test -B -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true'
           }
-        }
+        }*/
         stage('cucumber') {
           steps {
             echo 'cucumber test cases'
