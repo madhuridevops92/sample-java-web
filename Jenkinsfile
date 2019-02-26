@@ -9,8 +9,8 @@ pipeline {
     stage('Initialize') {
       steps {
         bat '''
-                    export PATH=C:\apache-maven-3.6.0\bin
-                    export M2_HOME=C:\apache-maven-3.6.0
+                    export PATH=C:/apache-maven-3.6.0/bin
+                    export M2_HOME=C:/apache-maven-3.6.0
                 '''
       }
     }
