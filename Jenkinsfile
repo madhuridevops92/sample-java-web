@@ -13,7 +13,7 @@ pipeline {
                     export M2_HOME=C:\Program Files\apache-maven-3.5.4
                 '''
       }
-    }*/
+    }*/ 
     stage('Build') {
       steps {
         echo 'build'
