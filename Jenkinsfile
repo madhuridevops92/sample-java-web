@@ -30,7 +30,7 @@ pipeline {
         stage('Junit') {
           steps {
             echo 'junit tests'
-            sh 'mvn test -B -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true'
+            bat 'mvn test -B -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true'
           }
         }
         stage('cucumber') {
