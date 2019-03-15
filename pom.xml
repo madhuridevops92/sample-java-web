@@ -88,6 +88,16 @@
           <releaseProfiles>release</releaseProfiles>
         </configuration>
       </plugin>
-      </plugins>
+	  <plugin>
+      <groupId>org.apache.tomcat.maven</groupId>
+      <artifactId>tomcat8.5-maven-plugin</artifactId>
+      <version>2.2</version>
+      <configuration>
+        <url>http://localhost:8085/</url>
+        <server>TomcatServer</server>
+        <path>/myapp</path>
+      </configuration>
+      </plugin>
+     </plugins>
   </build>
 </project>
